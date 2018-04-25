@@ -15,3 +15,8 @@ For each data record, you are to display the results in a CDK window. After disp
 
 Program Display:
 This program will read in records from a Binary File(including the Header record) and outputs the records into a CDK Matrix. 
+
+How to Run the program:
+After Cloning into your repository, do make clean to get rid of any object files that may have been present. 
+1) Do "make" which will build the program and provide the object files and executable.
+2) Run using following command "/.cdkexample".
