@@ -94,7 +94,7 @@ int main()
 
 
   BinaryFileHeader *headerRecord = new BinaryFileHeader();
-  ifstream binFileInput ("cs3377.bin", ios::in | ios::binary);
+  ifstream binFileInput ("cs3377.bin", ios::in | ios::binary); 
 
   binFileInput.read((char *) headerRecord, sizeof(BinaryFileHeader));  
    
@@ -106,6 +106,24 @@ int main()
   
   sprintf(buffr, "NumRecords: %lu", headerRecord->numRecords);
   setCDKMatrixCell(myMatrix, 1, 3, buffr);
+
+   
+  BinaryFileRecord *fileRecord = new BinaryFileRecord();
+  
+  int xx  = 2;
+ 
+  for(int i = 0; i < 4; i++)
+    {
+      binFileInput.read((char *) fileRecord, sizeof(BinaryFileRecord));
+      sprintf(buffr, "strlen: %lu", strlen(fileRecord->stringBuffer));
+      setCDKMatrixCell(myMatrix, xx, 1, buffr);
+
+      sprintf(buffr, "%s", fileRecord->stringBuffer);
+      setCDKMatrixCell(myMatrix, xx, 2, buffr); 
+      xx++;
+    }
+  
+
 
   binFileInput.close();
 
